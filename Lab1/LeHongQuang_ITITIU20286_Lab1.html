@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+              h4.id {font-weight: bold;}
+              h4.course {font-weight: bold;}
+              h3 {color: blue;}
+              h4.labtitle {font-style: italic;
+                           font-weight: normal;}
+    </style>
+
+ <title>Lab 1</title>
+
+</head>
+<body>
+    <h3> Lê Hồng Quang </h3>
+    <h4 class="id"> ID: ITITIU20286 </h4>
+    <h4 class="course"> Course: Data science and data visualization </h4>
+    <h4 class="labtitle"> Lab 1 - Introduction to HTML, CSS, SVG and JavaScript </h4>
+    <p> This is all my own work. I did not copy the code from any other source </p>
+    <element>
+        <svg width="250" height="150" viewBox="0 0 142.091 63.636" xmlns="http://www.w3.org/2000/svg"><g id="svgGroup" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#000" stroke-width="0.25mm" fill="#000" style="stroke:#000;stroke-width:0.25mm;fill:#000"><path d="M 30.818 54.182 L 40.273 63.636 L 1.818 63.636 L 11.273 54.182 L 30.818 54.182 Z M 3.545 30.091 L 0 26.455 L 0 0 L 9.455 9.545 L 9.455 24.091 L 3.545 30.091 Z M 54.455 30.091 L 50.909 26.455 L 50.909 0 L 60.364 9.545 L 60.364 24.091 L 54.455 30.091 Z M 87.636 30.091 L 81.727 24.091 L 81.727 9.545 L 91.182 0 L 91.182 26.455 L 87.636 30.091 Z M 54.455 33.636 L 60.364 39.545 L 60.364 54.182 L 50.909 63.636 L 50.909 37.182 L 54.455 33.636 Z M 87.636 33.636 L 91.182 37.182 L 91.182 63.636 L 81.727 54.182 L 81.727 39.545 L 87.636 33.636 Z M 61 27.091 L 81.182 27.091 L 85.909 31.818 L 81.182 36.545 L 61 36.545 L 56.273 31.818 L 61 27.091 Z M 3.545 33.636 L 9.455 39.545 L 9.455 52.364 L 0 61.818 L 0 37.182 L 3.545 33.636 Z M 130.909 0 L 135.636 4.727 L 130.909 9.545 L 113.091 9.545 L 108.364 4.727 L 113.091 0 L 130.909 0 Z M 135.364 63.636 L 124.091 52.364 L 124.091 45.545 L 130.909 45.545 L 142.091 56.818 L 142.091 63.636 L 135.364 63.636 Z M 101.818 35.909 L 101.818 52.364 L 106.545 57.091 L 111.273 52.364 L 111.273 38.273 L 105.364 32.364 L 101.818 35.909 Z M 142.091 11.273 L 142.091 25.182 L 138.545 28.727 L 132.636 22.818 L 132.636 11.273 L 137.364 6.545 L 142.091 11.273 Z M 111.273 11.273 L 111.273 22.818 L 105.364 28.727 L 101.818 25.182 L 101.818 11.273 L 106.545 6.545 L 111.273 11.273 Z M 122.364 63.636 L 113.091 63.636 L 108.364 58.909 L 113.091 54.182 L 122.364 54.182 L 127.091 58.909 L 122.364 63.636 Z M 142.091 35.909 L 142.091 43.818 L 137.364 48.545 L 132.636 43.818 L 132.636 38.273 L 138.545 32.364 L 142.091 35.909 Z" vector-effect="non-scaling-stroke"/></g></svg>
+        <div id="chart"></div>
+            <script>
+              var  height=300, width=400;
+              var svgg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+              svgg.setAttribute("height", height);
+              svgg.setAttribute("width", width);
+              var main = document.getElementById("chart");
+              main.appendChild(svgg);
+
+
+              var myname = prompt("Please enter something").toLowerCase();
+              var stringBase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','_'];
+              var countObject = {} ;
+
+              function characterCount(word, character) {
+                var count = 0;
+                  for (var i = 0; i < word.length; i++) {
+                    if (word[i] === character) {
+                     count++;
+                     }
+                   }
+                   return count;
+                 }
+                 for (var i = 0, l = stringBase.length; i < l; i++) {
+                   var currentChar = stringBase[i];
+                   countObject[currentChar] = characterCount(myname, currentChar);
+                 }
+                 var AD= countObject.a+ countObject.b+countObject.c+countObject.d;
+                 var EH= countObject.e+ countObject.f+countObject.g+countObject.h;
+                 var IL= countObject.i+ countObject.j+countObject.k+countObject.l;
+                 var MP= countObject.m+ countObject.n+countObject.o+countObject.p;
+                 var QU= countObject.q+countObject.r+ countObject.s+countObject.t+countObject.u;
+                 var VZ= countObject.v+countObject.w+ countObject.x+countObject.y+countObject.z;
+
+                function createhistogram(svg, name, attrs)
+                  {
+                    var element = document.createElementNS("http://www.w3.org/2000/svg", name);
+                    if (attrs === undefined) attrs = {};
+                    for (var key in attrs) {
+                      element.setAttributeNS(null, key, attrs[key]);
+                      }
+                      element.setAttributeNS(null, 'transform', 'translate(0,800)');
+                      element.setAttributeNS(null, 'transform', 'scale(1,-1)');
+                      svg.appendChild(element);
+                    }
+
+                var data=[AD, EH, IL, MP, QU, VZ];
+                data.forEach(function(a,b) {
+                 var rect = createhistogram(svgg, "rect", {"x" : 10+10*b, "y" : -250, "width" : 9.5, "height" : 25*a, "fill": "#00A170", "stroke" : "black"})
+                  });
+
+              </script>
+            <svg width="1200" height="1000" transform="matrix(0 0 0 -1 -1 -1)" </svg>
+        </svg>
+</body>
+</html>
